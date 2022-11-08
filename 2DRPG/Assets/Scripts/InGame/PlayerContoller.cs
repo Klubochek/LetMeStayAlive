@@ -5,15 +5,21 @@ using UnityEngine;
 
 public class PlayerContoller : MonoBehaviour
 {
-
+    [SerializeField] public GameObject inventory;
     private Rigidbody2D rigidbody;
     private Vector2 direction;
     public float speedMove;
     private Vector2 changeDirection;
 
+    private void Awake()
+    {
+        
+        rigidbody = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        //inventory = GameObject.FindGameObjectWithTag("Inventory");
         direction.x = Input.GetAxis("Horizontal") * speedMove;
         direction.y = Input.GetAxis("Vertical") * speedMove;
         rigidbody.position +=direction * speedMove * Time.deltaTime;
@@ -33,5 +39,18 @@ public class PlayerContoller : MonoBehaviour
         {
             // Атакует врага
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            OpenCloseInv();
+            
+        }
+    }
+    private void OpenCloseInv() 
+    {
+        if (inventory.activeSelf == true)
+        {
+            inventory.SetActive(false);
+        }
+        else inventory.SetActive(true);
     }
 }

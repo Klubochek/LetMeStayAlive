@@ -15,7 +15,7 @@ public class SaveButton : MonoBehaviour
         currentState = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCurrentState>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
         pd = new PlayerData();
-        pd.health = currentState.health;
+        pd.health = currentState.Health;
         pd.playerPosition = playerPosition;
         DataManager.SavePlayerData(pd);
         
