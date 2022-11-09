@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayersEvents : MonoBehaviour
 {
-    public Action<int> OnPickUpHealtPotion;
+    public event Action<int> OnPickUpHealtPotion;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

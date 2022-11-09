@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +6,7 @@ public class MenuScript : MonoBehaviour
 {
     [SerializeField] GameObject menuBox;
     [SerializeField] AudioSource buttonClick;
-   
+
     public void MenuBox()
     {
         ButtonClick();
@@ -19,8 +17,8 @@ public class MenuScript : MonoBehaviour
     }
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene(0); 
-    }    
+        SceneManager.LoadScene(0);
+    }
     public void ButtonClick()
     {
         buttonClick.Play();

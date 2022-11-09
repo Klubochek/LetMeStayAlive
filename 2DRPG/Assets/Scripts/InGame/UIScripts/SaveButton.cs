@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SaveButton : MonoBehaviour
@@ -10,7 +7,7 @@ public class SaveButton : MonoBehaviour
     private Vector3 playerPosition;
 
 
-    public void ButtonSave() 
+    public void ButtonSave()
     {
         currentState = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCurrentState>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
@@ -18,7 +15,7 @@ public class SaveButton : MonoBehaviour
         pd.health = currentState.Health;
         pd.playerPosition = playerPosition;
         DataManager.SavePlayerData(pd);
-        
+
     }
 
 }

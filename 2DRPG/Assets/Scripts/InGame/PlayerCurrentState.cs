@@ -1,25 +1,23 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerCurrentState : MonoBehaviour
 {
-    
 
-    [SerializeField] public int Health 
+
+    [SerializeField]
+    public int Health
     {
-        get=>health;
+        get => health;
         set => OnHpChanged?.Invoke(health);
     }
 
-    public readonly int MAXHEALTH=10;
+    public readonly int MAXHEALTH = 10;
     public Vector3 currentPlayerPosition = Vector3.zero;
     [SerializeField] private int health;
     public PlayersEvents playerEv;
 
-    public Action<int> OnHpChanged;
+    public event Action<int> OnHpChanged;
 
 
     private void Awake()
@@ -31,12 +29,12 @@ public class PlayerCurrentState : MonoBehaviour
         playerEv = GetComponent<PlayersEvents>();
         playerEv.OnPickUpHealtPotion += AddHp;
     }
-    public void AddHp(int value) 
+    public void AddHp(int value)
     {
-        
+
         health += value;
         OnHpChanged?.Invoke(health);
         return;
     }
-    
+
 }
